@@ -1,0 +1,305 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-black: #000000;
+    --color-red-dark: #6B0F0F;
+    --color-red-vibrant: #E60000;
+    --color-white: #FFFFFF;
+    --color-gray-dark: #333333;
+    --color-gray-light: #F5F5F5;
+
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Lora', serif;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-white);
+    background-image: url('assets/marble-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--color-black);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Overlay to ensure text readability if texture is too strong */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    z-index: -1;
+}
+
+/* Animated Particles */
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(107, 15, 15, 0.1);
+    border-radius: 50%;
+    animation: float 20s infinite ease-in-out;
+}
+
+.p1 {
+    width: 10px;
+    height: 10px;
+    top: 20%;
+    left: 20%;
+    animation-duration: 25s;
+}
+
+.p2 {
+    width: 15px;
+    height: 15px;
+    top: 60%;
+    left: 80%;
+    animation-duration: 30s;
+    animation-delay: -5s;
+}
+
+.p3 {
+    width: 8px;
+    height: 8px;
+    top: 80%;
+    left: 30%;
+    animation-duration: 22s;
+    animation-delay: -10s;
+}
+
+.p4 {
+    width: 20px;
+    height: 20px;
+    top: 10%;
+    left: 90%;
+    animation-duration: 35s;
+    animation-delay: -2s;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(20px, -20px);
+    }
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 480px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    margin: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Header */
+.profile-header {
+    margin-bottom: 2.5rem;
+}
+
+.logo-container {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Optional: circle frame or just clean */
+    /* background: white; 
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); */
+}
+
+.logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+h1 {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-family: var(--font-secondary);
+    color: var(--color-gray-dark);
+    font-size: 1rem;
+    font-style: italic;
+}
+
+/* Buttons */
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.link-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Centered visually, but maybe text-align left with padding? Let's try centered for LinkInBio style */
+    padding: 1.1rem 1.5rem;
+    text-decoration: none;
+    border-radius: 50px;
+    /* Pill shape */
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.link-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.link-btn:active {
+    transform: translateY(0);
+}
+
+.icon-box {
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+}
+
+/* Primary Button (Catálogo) */
+.primary-btn {
+    background-color: var(--color-red-vibrant);
+    color: var(--color-white);
+    border: 2px solid var(--color-red-vibrant);
+}
+
+.primary-btn:hover {
+    background-color: #cc0000;
+    border-color: #cc0000;
+}
+
+/* Secondary Button (WhatsApp) */
+.secondary-btn {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border: 2px solid var(--color-red-dark);
+}
+
+.secondary-btn:hover {
+    background-color: var(--color-gray-dark);
+}
+
+/* Tertiary Button (Others) */
+.tertiary-btn {
+    background-color: transparent;
+    color: var(--color-black);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #fff;
+}
+
+.tertiary-btn:hover {
+    border-color: var(--color-black);
+}
+
+/* Footer */
+.social-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.social-icon {
+    font-size: 0.9rem;
+    color: var(--color-black);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.social-icon:hover {
+    color: var(--color-red-vibrant);
+}
+
+.credits {
+    font-size: 0.8rem;
+    color: #888;
+    font-family: var(--font-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.developer-credit {
+    display: inline-block;
+    font-size: 0.7rem;
+    color: #bbb;
+    text-decoration: none;
+    font-family: var(--font-primary);
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.developer-credit:hover {
+    color: var(--color-red-dark);
+    transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+    .container {
+        padding: 1.5rem 1rem;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    .link-btn {
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+}
